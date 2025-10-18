@@ -1,18 +1,22 @@
 {
-  "name": "mentalhealth-bot",
+  "name": "mind-companion-api",
   "version": "1.0.0",
+  "description": "Emotional Support AI API using Hugging Face and Flask replacement via Node.js Express",
   "type": "module",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "node-fetch": "^2.7.0"
-  }
+    "axios": "^1.5.0",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Saksham Mishra",
+  "license": "MIT"
 }
