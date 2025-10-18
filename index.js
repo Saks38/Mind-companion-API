@@ -3,7 +3,7 @@ import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import { keepAlive } from "./keepalive.js";
+import keepAlive from "./keepalive.js";
 
 dotenv.config();
 
