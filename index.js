@@ -1,55 +1,65 @@
+// index.js
 import express from "express";
-import fetch from "node-fetch";
+import axios from "axios";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+import { keepAlive } from "./keepalive.js";
+
 dotenv.config();
 
 const app = express();
 app.use(bodyParser.json());
 
-const HF_API_KEY = process.env.HF_TOKEN;
-const HF_API_URL = "https://api-inference.huggingface.co/models/microsoft/phi-3-mini-4k-instruct";
+// ✅ Root route (to check if server is live)
+app.get("/", (req, res) => {
+  res.send("🧠 Mind Companion API is live and connected to Dialogflow!");
+});
 
-// 🧠 Main Fulfillment Endpoint for Dialogflow
+// ✅ Main webhook endpoint for Dialogflow
 app.post("/chat", async (req, res) => {
   try {
-    // Step 1: Get user text (or Dialogflow's detected text)
-    const userQuery = req.body.queryResult?.queryText || req.body.text || "Hello there!";
+    const userQuery = req.body.queryResult?.queryText || "User message missing.";
+    const kbResponse = req.body.queryResult?.fulfillmentText || ""; // Pull KB text if it exists
 
-    // Step 2: Check if Dialogflow already has a response (from KB/intents)
-    const dfReply = req.body.queryResult?.fulfillmentText;
+    // Combine user query + KB response for Phi to refine
+    const combinedText = kbResponse
+      ? `The user asked: "${userQuery}". Dialogflow suggested: "${kbResponse}". Please rephrase this response naturally and empathetically, like a human counselor would.`
+      : `The user said: "${userQuery}". Please respond naturally and empathetically.`;
 
-    // Step 3: Merge both (so Phi can “refine” or “empathize”)
-    const prompt = dfReply
-      ? `User said: "${userQuery}". Dialogflow suggests: "${dfReply}". Rewrite it warmly, encouragingly, and naturally.`
-      : `User said: "${userQuery}". Give a warm, supportive, and human response.`;
+    console.log("🧠 User Query:", userQuery);
+    console.log("📘 Knowledge Base Response:", kbResponse || "(none)");
 
-    // Step 4: Send to Phi model
-    const hfResponse = await fetch(HF_API_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${HF_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ inputs: prompt }),
-    });
+    // Send combined text to Phi model on Hugging Face
+    const phiResponse = await axios.post(
+      "https://api-inference.huggingface.co/models/microsoft/phi-3-mini-4k-instruct",
+      { inputs: combinedText },
+      { headers: { Authorization: `Bearer ${process.env.HF_TOKEN}` } }
+    );
 
-    const data = await hfResponse.json();
-    const responseText =
-      data?.[0]?.generated_text ||
-      "I'm here for you. Feel free to share more about how you're feeling.";
+    const refinedText =
+      phiResponse.data?.[0]?.generated_text?.trim() ||
+      "I'm here for you. Please tell me more about what’s been going on.";
 
-    // Step 5: Send refined reply back to Dialogflow
+    console.log("💬 Refined Response:", refinedText);
+
+    // Send refined response back to Dialogflow
     res.json({
-      fulfillmentText: responseText,
+      fulfillmentText: refinedText,
     });
   } catch (error) {
-    console.error("Error in /chat:", error);
+    console.error("❌ Error processing request:", error);
     res.json({
-      fulfillmentText: "Sorry, I had trouble processing that right now.",
+      fulfillmentText:
+        "I’m here for you, but I’m having trouble responding right now. Can you say that again?",
     });
   }
 });
 
-app.listen(3000, () => console.log("✨ MindCompanion API running on port 3000"));
+// ✅ Keepalive ping (prevents Render from sleeping too early)
+keepAlive();
 
+// ✅ Start the Express server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
