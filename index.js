@@ -1,77 +1,55 @@
 import express from "express";
 import fetch from "node-fetch";
+import bodyParser from "body-parser";
 import dotenv from "dotenv";
-
 dotenv.config();
 
 const app = express();
-app.use(express.json());
+app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 3000;
-const API_URL = "https://api-inference.huggingface.co/models/microsoft/Phi-3-mini-4k-instruct";
-const HF_TOKEN = process.env.API; // 🔒 your Hugging Face token stored in .env
-const MEMORY_LENGTH = 5;
+const HF_API_KEY = process.env.HF_TOKEN;
+const HF_API_URL = "https://api-inference.huggingface.co/models/microsoft/phi-3-mini-4k-instruct";
 
-let conversation = [];
-
-// 🧠 Helper to build contextual prompt
-function buildPrompt(userInput) {
-  let history = "";
-  for (let [user, ai] of conversation.slice(-MEMORY_LENGTH)) {
-    history += `User: ${user}\nAI: ${ai}\n`;
-  }
-  return `
-You are Aura, a compassionate emotional-support AI. 
-You listen with empathy and respond briefly, calmly, and kindly.
-Avoid talking about yourself or using links.
-Here’s the recent chat:
-${history}
-User: ${userInput}
-AI:`;
-}
-
-// 💬 Function to call Hugging Face Phi-3-mini
-async function askPhi(prompt) {
+// 🧠 Main Fulfillment Endpoint for Dialogflow
+app.post("/chat", async (req, res) => {
   try {
-    const response = await fetch(API_URL, {
+    // Step 1: Get user text (or Dialogflow's detected text)
+    const userQuery = req.body.queryResult?.queryText || req.body.text || "Hello there!";
+
+    // Step 2: Check if Dialogflow already has a response (from KB/intents)
+    const dfReply = req.body.queryResult?.fulfillmentText;
+
+    // Step 3: Merge both (so Phi can “refine” or “empathize”)
+    const prompt = dfReply
+      ? `User said: "${userQuery}". Dialogflow suggests: "${dfReply}". Rewrite it warmly, encouragingly, and naturally.`
+      : `User said: "${userQuery}". Give a warm, supportive, and human response.`;
+
+    // Step 4: Send to Phi model
+    const hfResponse = await fetch(HF_API_URL, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${HF_TOKEN}`,
+        Authorization: `Bearer ${HF_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ inputs: prompt }),
     });
 
-    const data = await response.json();
+    const data = await hfResponse.json();
+    const responseText =
+      data?.[0]?.generated_text ||
+      "I'm here for you. Feel free to share more about how you're feeling.";
 
-    if (Array.isArray(data) && data[0]?.generated_text) {
-      return data[0].generated_text.trim();
-    } else {
-      return "I'm here for you. Tell me more about what’s on your mind.";
-    }
+    // Step 5: Send refined reply back to Dialogflow
+    res.json({
+      fulfillmentText: responseText,
+    });
   } catch (error) {
-    console.error("⚠️ API Error:", error);
-    return "Sorry, I had trouble connecting right now.";
+    console.error("Error in /chat:", error);
+    res.json({
+      fulfillmentText: "Sorry, I had trouble processing that right now.",
+    });
   }
-}
-
-// 🧩 Endpoint for chat
-app.post("/chat", async (req, res) => {
-  const userInput = req.body.text || "";
-  const prompt = buildPrompt(userInput);
-  const reply = await askPhi(prompt);
-
-  // Save message pair to memory
-  conversation.push([userInput, reply]);
-  res.json({ response: reply });
 });
 
-// Root route for testing
-app.get("/", (req, res) => {
-  res.send("🌿 Mental Health AI (Aura) is running successfully!");
-});
+app.listen(3000, () => console.log("✨ MindCompanion API running on port 3000"));
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
-});
