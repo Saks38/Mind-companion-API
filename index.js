@@ -6,15 +6,23 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Base endpoint for Dialogflow webhook
 app.post("/chat", async (req, res) => {
   try {
     const userMessage =
       req.body?.queryResult?.queryText ||
       req.body?.text ||
-      "Hello, I’m feeling off today.";
+      "Hello there, how are you feeling today?";
 
     console.log("💬 User:", userMessage);
+
+    // Craft a richer context prompt
+    const prompt = `
+You are MindCompanion, an empathetic mental-health assistant.
+Your goal is to give comforting, thoughtful, and supportive replies.
+If the user asks for advice, gently provide perspective and coping ideas.
+
+User: ${userMessage}
+MindCompanion:`.trim();
 
     const hfResponse = await fetch(
       "https://api-inference.huggingface.co/models/microsoft/phi-2",
@@ -25,14 +33,14 @@ app.post("/chat", async (req, res) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          inputs: `User: ${userMessage}\nAI:`,
+          inputs: prompt,
           parameters: {
-            max_new_tokens: 120,
-            temperature: 0.7,
-            top_p: 0.9,
-            do_sample: true,
-          },
-        }),
+            max_new_tokens: 180,
+            temperature: 0.85,
+            top_p: 0.95,
+            do_sample: true
+          }
+        })
       }
     );
 
@@ -42,36 +50,36 @@ app.post("/chat", async (req, res) => {
       const data = await hfResponse.json();
 
       if (Array.isArray(data) && data[0]?.generated_text) {
-        botReply = data[0].generated_text
-          .split("AI:")[1]
+        const raw = data[0].generated_text;
+        // Clean out everything before MindCompanion: and after next user line if any
+        botReply = raw
+          .split("MindCompanion:")[1]
+          ?.split("User:")[0]
           ?.trim()
-          ?.replace(/(?:\r\n|\r|\n)/g, " ")
+          ?.replace(/\s+/g, " ")
           || botReply;
       } else if (data.error) {
         console.error("💥 HF API Error:", data.error);
-        botReply = "I'm having a bit of trouble connecting to my model.";
+        botReply = "I'm having a bit of trouble connecting to my model right now.";
       }
-    } catch (parseErr) {
-      console.error("❌ JSON Parse Error:", parseErr);
+    } catch (err) {
+      console.error("❌ Parse error:", err);
     }
 
     console.log("🤖 Reply:", botReply);
 
-    res.json({
-      fulfillmentText: botReply,
-    });
+    res.json({ fulfillmentText: botReply });
   } catch (err) {
-    console.error("🔥 Server Error:", err);
+    console.error("🔥 Server error:", err);
     res.json({
       fulfillmentText:
-        "I'm here for you, but I'm having trouble responding right now.",
+        "I'm here for you, but I'm having trouble responding right now."
     });
   }
 });
 
-// Keep Render instance alive
 app.get("/", (req, res) => {
-  res.send("Mind Companion AI (Phi-2) is live ✨");
+  res.send("MindCompanion (Phi-2) is running smoothly ✨");
 });
 
 app.listen(3000, () => console.log("🚀 Server running on port 3000"));
