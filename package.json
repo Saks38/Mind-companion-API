@@ -1,22 +1,15 @@
 {
   "name": "mind-companion-api",
   "version": "1.0.0",
-  "description": "Emotional Support AI API using Hugging Face and Flask replacement via Node.js Express",
-  "type": "module",
+  "description": "Emotional Support AI powered by Microsoft Phi-2",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "axios": "^1.5.0",
-    "body-parser": "^1.20.2",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "node-fetch": "^3.3.2"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "author": "Saksham Mishra",
-  "license": "MIT"
+  }
 }
