@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// 🧩 Core Phi-2 Query Function
+// 💬 Function to query Phi-2 on Hugging Face
 async function queryPhi(prompt) {
   const url = "https://api-inference.huggingface.co/models/microsoft/phi-2?wait_for_model=true";
   const headers = {
@@ -16,21 +16,21 @@ async function queryPhi(prompt) {
   };
 
   const body = JSON.stringify({
-    inputs: `The user said: "${prompt}". Respond compassionately, like a mental health companion providing thoughtful advice.`,
+    inputs: prompt,
     parameters: {
       max_new_tokens: 180,
-      temperature: 0.85,
+      temperature: 0.8,
       top_p: 0.95,
       return_full_text: false,
     },
   });
 
-  // Try fetching once, retry if model isn’t ready
+  // Try once, retry after 5 seconds if model is still loading
   let res = await fetch(url, { method: "POST", headers, body });
   let text = await res.text();
 
   if (text.startsWith("Not Found")) {
-    console.warn("⚠️ Model warming up... retrying once in 5s");
+    console.warn("⚠️ Model warming up… retrying in 5 seconds.");
     await new Promise((r) => setTimeout(r, 5000));
     res = await fetch(url, { method: "POST", headers, body });
     text = await res.text();
@@ -47,37 +47,4 @@ async function queryPhi(prompt) {
   }
 }
 
-// 🌐 Webhook endpoint for Dialogflow
-app.post("/chat", async (req, res) => {
-  try {
-    const userMessage =
-      req.body.queryResult?.queryText ||
-      req.body.text ||
-      "Hello, how are you feeling today?";
-
-    console.log(`💬 User: ${userMessage}`);
-
-    const botReply = await queryPhi(userMessage);
-
-    console.log(`🤖 Bot: ${botReply}`);
-
-    res.json({
-      fulfillmentText: botReply,
-    });
-  } catch (error) {
-    console.error("⚠️ Webhook Error:", error);
-    res.json({
-      fulfillmentText: "I'm here for you, but something went wrong. Could you repeat that?",
-    });
-  }
-});
-
-// 🛠️ Keepalive (for Render Free Tier)
-app.get("/", (req, res) => {
-  res.send("Mind Companion API is live 🌿");
-});
-
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
-});
+// 🌐 Main webhook route for Dialogflow
