@@ -7,13 +7,67 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// 🧩 Hugging Face Phi-2 Model API Endpoint
-const HF_API_URL = "https://api-inference.huggingface.co/models/microsoft/phi-2?wait_for_model=true";
+// -------------------- CONFIG --------------------
+const HF_API_URL =
+  "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2?wait_for_model=true";
+const HF_TOKEN = process.env.HF_API_KEY || process.env.HF_TOKEN;
+const PORT = process.env.PORT || 10000;
 
-// 💬 Function to query the Hugging Face API (Phi-2)
-async function queryPhi(prompt) {
+// -------------------- SIMPLE MEMORY --------------------
+const sessions = new Map();
+const MEMORY_LEN = 6;
+
+// -------------------- HELPERS --------------------
+function ensureSession(id) {
+  if (!sessions.has(id)) sessions.set(id, { memory: [], name: null });
+  return sessions.get(id);
+}
+
+function pushMemory(id, role, text) {
+  const s = ensureSession(id);
+  s.memory.push({ role, text });
+  if (s.memory.length > MEMORY_LEN) s.memory.shift();
+}
+
+function extractSessionId(raw) {
+  if (!raw) return "anonymous";
+  const parts = raw.split("/");
+  return parts[parts.length - 1] || "anonymous";
+}
+
+function detectName(id, text) {
+  const match = text.match(/\b(?:call me|my name is)\s+([A-Za-z0-9 _'-]{1,30})/i);
+  if (match) {
+    ensureSession(id).name = match[1].trim();
+    console.log(`💡 Remembering user name for ${id}: ${match[1].trim()}`);
+  }
+}
+
+function buildPrompt(id, userMessage) {
+  const s = ensureSession(id);
+  const namePart = s.name
+    ? `The user's name is ${s.name}. Address them respectfully as ${s.name}. `
+    : "";
+  const history = s.memory.map(
+    (m) => `${m.role === "user" ? "User" : "Assistant"}: ${m.text}`
+  ).join("\n");
+
+  return `
+You are Sahaj, a warm and empathetic mental health companion.
+Always speak in first person (say "I", not "Sahaj").
+Respond with compassion, calmness, and care. Never give medical advice.
+${namePart}
+Conversation so far:
+${history}
+
+User: ${userMessage}
+Assistant:
+`.trim();
+}
+
+async function callMistral(prompt) {
   const headers = {
-    Authorization: `Bearer ${process.env.HF_TOKEN}`,
+    Authorization: `Bearer ${HF_TOKEN}`,
     "Content-Type": "application/json",
   };
 
@@ -21,81 +75,73 @@ async function queryPhi(prompt) {
     inputs: prompt,
     parameters: {
       max_new_tokens: 180,
-      temperature: 0.8,
+      temperature: 0.7,
       top_p: 0.95,
       return_full_text: false,
     },
   });
 
-  try {
-    let response = await fetch(HF_API_URL, { method: "POST", headers, body });
-    let text = await response.text();
+  const res = await fetch(HF_API_URL, { method: "POST", headers, body });
+  const txt = await res.text();
 
-    // Handle model loading or 404 issues gracefully
-    if (text.startsWith("Not Found") || text.includes("loading")) {
-      console.log("⚠️ Model warming up... retrying in 5 seconds.");
-      await new Promise((r) => setTimeout(r, 5000));
-      response = await fetch(HF_API_URL, { method: "POST", headers, body });
-      text = await response.text();
-    }
-
-    const data = JSON.parse(text);
-    if (Array.isArray(data) && data[0]?.generated_text) {
-      return data[0].generated_text.trim();
-    } else {
-      console.log("⚠️ Unexpected response:", data);
-      return "I'm here for you. Tell me more about that.";
-    }
-  } catch (err) {
-    console.error("❌ Error in queryPhi:", err);
-    return "I'm here for you, but something went wrong. Can you repeat that?";
+  if (txt.includes("loading")) {
+    console.log("⚠️ Model warming up... retrying in 3s");
+    await new Promise((r) => setTimeout(r, 3000));
+    return callMistral(prompt);
   }
+
+  try {
+    const data = JSON.parse(txt);
+    if (Array.isArray(data) && data[0]?.generated_text)
+      return data[0].generated_text.trim();
+    if (data.generated_text) return data.generated_text.trim();
+    if (data.text) return data.text.trim();
+  } catch (err) {
+    console.warn("⚠️ Could not parse HF response:", txt.slice(0, 200));
+  }
+
+  return "I'm here for you. Let's take a deep breath together.";
 }
 
-// 🌐 Main webhook route for Dialogflow
+// -------------------- ROUTES --------------------
 app.post("/chat", async (req, res) => {
   try {
+    const body = req.body || {};
+    const rawSession = body.session || "";
+    const sessionId = extractSessionId(rawSession);
     const userMessage =
-      req.body.queryResult?.queryText ||
-      req.body.text ||
+      body.queryResult?.queryText ||
+      body.text ||
       "Hello, how are you feeling today?";
 
-    // Extract knowledge base response if available
-    const kbAnswer =
-      req.body.queryResult?.fulfillmentMessages?.[0]?.text?.text?.[0] || "";
+    detectName(sessionId, userMessage);
+    pushMemory(sessionId, "user", userMessage);
 
-    // Construct a more emotional prompt for Phi
-    const prompt =
-      kbAnswer && kbAnswer.length > 0
-        ? `The user said: "${userMessage}". The knowledge base suggests this: "${kbAnswer}". 
-           Please rephrase it naturally in a warm, compassionate, and emotionally supportive tone, like a caring companion.`
-        : `The user said: "${userMessage}". Respond kindly, empathetically, and helpfully, like a thoughtful mental health companion.`;
+    const prompt = buildPrompt(sessionId, userMessage);
+    const replyRaw = await callMistral(prompt);
 
-    console.log("💬 User:", userMessage);
-    if (kbAnswer) console.log("📘 KB Answer:", kbAnswer);
+    // small fix for first-person voice
+    const reply = replyRaw
+      .replace(/\b[Ss]ahaj is\b/g, "I am")
+      .replace(/\b[Ss]ahaj\b/g, "I");
 
-    const botReply = await queryPhi(prompt);
-    console.log("🤖 Phi-2 Reply:", botReply);
+    pushMemory(sessionId, "assistant", reply);
 
-    res.json({
-      fulfillmentText: botReply,
-    });
-  } catch (error) {
-    console.error("⚠️ Webhook Error:", error);
-    res.json({
+    console.log("🤖 Reply:", reply);
+    return res.json({ fulfillmentText: reply });
+  } catch (err) {
+    console.error("⚠️ Error:", err);
+    return res.json({
       fulfillmentText:
-        "I'm here for you, but I’m having trouble responding right now. Could you try again?",
+        "I'm here for you, but I’m having trouble responding right now. Could you try again in a moment?",
     });
   }
 });
 
-// 🌱 Health check (for Render keep-alive)
 app.get("/", (req, res) => {
-  res.send("🌿 Mind Companion API is alive and well — powered by Phi-2 💫");
+  res.send("🌿 Sahaj API is alive — powered by Mistral 💫");
 });
 
-// 🛠 Start server on Render-assigned port
-const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
-  console.log(`✅ Server running and listening on port ${PORT}`);
+  console.log(`✅ Sahaj server live on port ${PORT}`);
 });
