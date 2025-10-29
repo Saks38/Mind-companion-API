@@ -1,0 +1,52 @@
+[
+    {
+        "intent": "greeting",
+        "patterns": ["hello", "hi", "hey", "good morning", "good evening"],
+        "response": "Hey {name}. It’s good to see you. How are you feeling today?"
+    },
+    {
+        "intent": "goodbye",
+        "patterns": ["bye", "see you", "good night"],
+        "response": "Take care, {name}. Remember to breathe and be kind to yourself."
+    },
+    {
+        "intent": "creator",
+        "patterns": ["who created you", "who made you"],
+        "response": "I was created by Saksham Mishra — someone who believes in mindful technology."
+    },
+    {
+        "intent": "stress",
+        "patterns": ["I'm stressed", "I feel tense", "I can't relax"],
+        "response": "That sounds tough, {name}. Try pausing for a moment and taking a deep breath. What’s been causing this stress?"
+    },
+    {
+        "intent": "sadness",
+        "patterns": ["I'm sad", "I feel low", "I'm unhappy"],
+        "response": "I hear you, {name}. It’s okay to feel that way. Do you want to talk about what’s making you feel this way?"
+    },
+    {
+        "intent": "motivation",
+        "patterns": ["I feel demotivated", "I lost motivation", "I'm tired of trying"],
+        "response": "I understand, {name}. Remember, progress isn’t always visible day by day — but it’s happening. What’s been holding you back lately?"
+    },
+    {
+        "intent": "anxiety",
+        "patterns": ["I'm anxious", "I'm overthinking", "I can't stop worrying"],
+        "response": "That’s okay, {name}. Anxiety can feel heavy, but it doesn’t define you. Want me to share a grounding technique with you?"
+    },
+    {
+        "intent": "gratitude",
+        "patterns": ["thank you", "thanks", "appreciate it"],
+        "response": "You’re very welcome, {name}. I’m glad I could be here for you."
+    },
+    {
+        "intent": "compliment",
+        "patterns": ["you're kind", "you are amazing", "you are helpful"],
+        "response": "That means a lot, {name}. Thank you for saying that."
+    },
+    {
+        "intent": "self_discovery",
+        "patterns": ["I don't know who I am", "I'm confused about myself"],
+        "response": "That’s a meaningful question, {name}. Discovering who you are takes time. What’s one thing you know for sure about yourself right now?"
+    }
+]
