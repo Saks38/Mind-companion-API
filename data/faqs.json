@@ -1,0 +1,1005 @@
+[
+  {
+    "id": 1,
+    "question": "What can I do when I feel anxious or overwhelmed?",
+    "answer": "When you feel anxious, {name}, focus on your breathing. Inhale slowly through your nose for four seconds, hold for two, and exhale through your mouth. It grounds you and lowers tension."
+  },
+  {
+    "id": 2,
+    "question": "How can I improve my sleep schedule?",
+    "answer": "Try keeping a consistent bedtime, {name}. Avoid screens 30 minutes before sleeping and keep your room dark and cool for better rest."
+  },
+  {
+    "id": 3,
+    "question": "What should I do if I keep overthinking?",
+    "answer": "When thoughts loop, {name}, write them down. Seeing them on paper helps separate what you can control from what you can’t."
+  },
+  {
+    "id": 4,
+    "question": "How do I calm myself before an exam or interview?",
+    "answer": "Take a few slow breaths, {name}, and remind yourself you’ve prepared. Visualize success rather than failure—it resets your mindset."
+  },
+  {
+    "id": 5,
+    "question": "Why do I lose motivation so quickly?",
+    "answer": "Motivation dips when goals feel too large, {name}. Break tasks into small wins and reward yourself for each step forward."
+  },
+  {
+    "id": 6,
+    "question": "Is it normal to feel sad without reason?",
+    "answer": "Yes, {name}, emotions can fluctuate without clear triggers. Be gentle with yourself—feelings pass like waves."
+  },
+  {
+    "id": 7,
+    "question": "How can I manage anger more effectively?",
+    "answer": "Notice early signs—tension, fast breathing—then pause, {name}. Step away, breathe, or write before responding."
+  },
+  {
+    "id": 8,
+    "question": "What are some healthy ways to cope with stress?",
+    "answer": "Physical movement, journaling, and short walks outside work wonders, {name}. Even five minutes helps reset your mood."
+  },
+  {
+    "id": 9,
+    "question": "How can I stop comparing myself to others?",
+    "answer": "Comparison steals joy, {name}. Focus on your progress from yesterday instead of someone else’s today."
+  },
+  {
+    "id": 10,
+    "question": "Why do I procrastinate even when I want to work?",
+    "answer": "It’s often fear of imperfection, {name}. Set a five-minute timer and just start—momentum follows action."
+  },
+  {
+    "id": 11,
+    "question": "How do I build self-confidence?",
+    "answer": "Confidence grows from evidence, {name}. Keep promises to yourself—each small success reinforces trust in you."
+  },
+  {
+    "id": 12,
+    "question": "What can I do if I feel lonely?",
+    "answer": "Reach out to someone you trust, {name}. Even a short chat can remind you that connection still exists."
+  },
+  {
+    "id": 13,
+    "question": "How can I focus better while studying?",
+    "answer": "Use the Pomodoro method—25 minutes focus, 5 minutes break. Your mind stays fresh, {name}."
+  },
+  {
+    "id": 14,
+    "question": "Why do I get irritated so easily?",
+    "answer": "Irritation often hides fatigue or unmet needs, {name}. Check if you’re hungry, tired, or need space."
+  },
+  {
+    "id": 15,
+    "question": "How do I deal with guilt?",
+    "answer": "Acknowledge what happened, learn from it, and forgive yourself, {name}. Growth rarely comes without mistakes."
+  },
+  {
+    "id": 16,
+    "question": "What should I do during a panic attack?",
+    "answer": "Ground yourself, {name}: name five things you can see, four you can touch, three you can hear, two you can smell, one you can taste."
+  },
+  {
+    "id": 17,
+    "question": "How can I stop worrying about the future?",
+    "answer": "Bring attention back to today, {name}. Ask, 'What’s one small thing I can do right now?' and focus there."
+  },
+  {
+    "id": 18,
+    "question": "Why do I push people away when they care?",
+    "answer": "It’s often fear of vulnerability, {name}. Remind yourself that closeness doesn’t mean losing control—it means being seen."
+  },
+  {
+    "id": 19,
+    "question": "What can help me feel more positive?",
+    "answer": "Practice gratitude daily, {name}. Note three small things that went right today—it retrains your focus."
+  },
+  {
+    "id": 20,
+    "question": "How can I handle rejection better?",
+    "answer": "Rejection hurts, {name}, but it’s redirection, not definition. Reflect, learn, and move toward what aligns with you."
+  },
+  {
+    "id": 21,
+    "question": "Is crying a sign of weakness?",
+    "answer": "Not at all, {name}. Crying is your body releasing tension—it’s a healthy emotional response."
+  },
+  {
+    "id": 22,
+    "question": "How do I build discipline?",
+    "answer": "Start with consistency over intensity, {name}. Doing a little every day matters more than doing a lot sometimes."
+  },
+  {
+    "id": 23,
+    "question": "What should I do if I feel stuck in life?",
+    "answer": "When stuck, {name}, change perspective. Try a new routine, talk to someone, or step outside your comfort zone."
+  },
+  {
+    "id": 24,
+    "question": "Why do I struggle to say no?",
+    "answer": "You value harmony, {name}. Practice gentle refusals like, 'I wish I could, but I need to rest today.'"
+  },
+  {
+    "id": 25,
+    "question": "How can I forgive someone who hurt me?",
+    "answer": "Forgiveness isn’t approval, {name}; it’s release. Let go so their actions don’t keep hurting you."
+  },
+  {
+    "id": 26,
+    "question": "Why do I feel numb sometimes?",
+    "answer": "Emotional numbness is a defense, {name}. Give yourself quiet time—feeling will return safely."
+  },
+  {
+    "id": 27,
+    "question": "How can I control social-media overuse?",
+    "answer": "Set time limits or remove one app for a day, {name}. Replace scrolling with something that feeds you, like music or a walk."
+  },
+  {
+    "id": 28,
+    "question": "Why do people ghost others?",
+    "answer": "Ghosting often reflects their discomfort, not your worth, {name}. You deserve communication and closure."
+  },
+  {
+    "id": 29,
+    "question": "How do I recover from burnout?",
+    "answer": "Pause completely for a day if you can, {name}. Sleep, hydrate, and do one thing that feels nourishing instead of productive."
+  },
+  {
+    "id": 30,
+    "question": "How can I stop negative self-talk?",
+    "answer": "Notice the voice and question it, {name}. Would you say that to a friend? If not, replace it with something kinder."
+  },
+  {
+    "id": 31,
+    "question": "Why do I keep doubting myself?",
+    "answer": "Self-doubt shows you care about doing well, {name}. Use it as a signal to prepare, not to stop."
+  },
+  {
+    "id": 32,
+    "question": "How can I deal with failure?",
+    "answer": "Failure is feedback, {name}. Ask, 'What did this teach me?' and apply it forward."
+  },
+  {
+    "id": 33,
+    "question": "How do I manage time better?",
+    "answer": "Prioritize three key tasks a day, {name}. Simplicity increases focus and peace."
+  },
+  {
+    "id": 34,
+    "question": "Why am I afraid of change?",
+    "answer": "Change triggers uncertainty, {name}. Acknowledge the fear and take one small adaptive step."
+  },
+  {
+    "id": 35,
+    "question": "How can I express emotions safely?",
+    "answer": "Try journaling or voice notes, {name}. Expression doesn’t require an audience—it requires honesty."
+  },
+  {
+    "id": 36,
+    "question": "What should I do when I feel hopeless?",
+    "answer": "Reach out to someone trusted or a counselor, {name}. You don’t have to face hopelessness alone."
+  },
+  {
+    "id": 37,
+    "question": "How can I deal with perfectionism?",
+    "answer": "Perfectionism hides fear of criticism, {name}. Aim for 'good enough'—that’s where growth happens."
+  },
+  {
+    "id": 38,
+    "question": "How do I stop caring about others’ opinions?",
+    "answer": "Remember, {name}, people think less about us than we imagine. Live by your values, not their expectations."
+  },
+  {
+    "id": 39,
+    "question": "How can I stay calm under pressure?",
+    "answer": "Use slow breathing and grounding, {name}. Say quietly, 'I can handle this moment.' It works."
+  },
+  {
+    "id": 40,
+    "question": "Why do I keep revisiting painful memories?",
+    "answer": "Your mind replays them to seek closure, {name}. Journaling or talking through them helps process safely."
+  },
+  {
+    "id": 41,
+    "question": "How can I improve my relationships?",
+    "answer": "Communicate needs calmly and listen actively, {name}. Empathy builds stronger bonds than control."
+  },
+  {
+    "id": 42,
+    "question": "How can I deal with grief?",
+    "answer": "Grief has no timetable, {name}. Let yourself feel and remember that healing is nonlinear."
+  },
+  {
+    "id": 43,
+    "question": "Why do I feel empty even when things are fine?",
+    "answer": "That emptiness might mean disconnection, {name}. Try doing something meaningful, not just productive."
+  },
+  {
+    "id": 44,
+    "question": "What are grounding techniques?",
+    "answer": "Grounding reconnects you to the present, {name}. Focus on sensations—what you see, hear, or touch right now."
+  },
+  {
+    "id": 45,
+    "question": "How can I stop being so self-critical?",
+    "answer": "Speak to yourself like a caring friend, {name}. Compassion changes inner dialogue faster than judgment."
+  },
+  {
+    "id": 46,
+    "question": "How do I build emotional resilience?",
+    "answer": "Face challenges gradually, {name}. Each recovery builds your resilience muscle."
+  },
+  {
+    "id": 47,
+    "question": "What can I do if I can’t talk to anyone?",
+    "answer": "Write to yourself, {name}. Your journal can be a safe listener until you find someone to open up to."
+  },
+  {
+    "id": 48,
+    "question": "Why do I feel like I’m not enough?",
+    "answer": "That belief comes from comparison or old criticism, {name}. You’ve always been enough—you just forgot for a moment."
+  },
+  {
+    "id": 49,
+    "question": "How can I regain focus after distractions?",
+    "answer": "Close extra tabs, take one deep breath, and start small, {name}. Momentum brings clarity."
+  },
+  {
+    "id": 50,
+    "question": "How can I practice mindfulness daily?",
+    "answer": "Notice ordinary moments, {name}—the taste of water, your steps, your breath. That’s mindfulness in action."
+  },
+  {
+    "id": 51,
+    "question": "Why do I keep feeling tired even after sleeping?",
+    "answer": "Emotional stress can drain you more than lack of rest, {name}. Try unwinding before bed and limiting screen time for deeper sleep."
+  },
+  {
+    "id": 52,
+    "question": "How can I forgive myself for past mistakes?",
+    "answer": "Self-forgiveness takes time, {name}. Accept that you did the best you could with what you knew then."
+  },
+  {
+    "id": 53,
+    "question": "Why do I feel jealous of others' success?",
+    "answer": "Jealousy shows what you value, {name}. Instead of guilt, use it as a guide to your own goals."
+  },
+  {
+    "id": 54,
+    "question": "How can I reduce screen anxiety?",
+    "answer": "Schedule 'digital detox' hours, {name}. Even 30 minutes offline daily helps your mind reset."
+  },
+  {
+    "id": 55,
+    "question": "What should I do if I keep arguing with my parents?",
+    "answer": "Pause before reacting, {name}. Listen fully, then explain how you feel using calm statements like 'I feel…'."
+  },
+  {
+    "id": 56,
+    "question": "How can I be more patient?",
+    "answer": "Patience grows when you slow expectations, {name}. Take three deep breaths before responding or deciding."
+  },
+  {
+    "id": 57,
+    "question": "Why do I feel restless all the time?",
+    "answer": "Restlessness often hides unexpressed energy, {name}. Try light exercise or journaling to release it."
+  },
+  {
+    "id": 58,
+    "question": "How do I accept things I can’t change?",
+    "answer": "Acceptance means choosing peace, {name}. Shift focus to what’s still within your control."
+  },
+  {
+    "id": 59,
+    "question": "Why do I overthink conversations after they happen?",
+    "answer": "That’s social replay, {name}. Remind yourself the moment has passed and others rarely notice small slips."
+  },
+  {
+    "id": 60,
+    "question": "What’s the best way to start journaling?",
+    "answer": "Write freely for five minutes daily, {name}. Focus on feelings, not grammar—the goal is release."
+  },
+  {
+    "id": 61,
+    "question": "How can I stop being so indecisive?",
+    "answer": "Try making small choices quickly, {name}. Confidence builds through repeated decisions, not perfect ones."
+  },
+  {
+    "id": 62,
+    "question": "Why do I avoid difficult conversations?",
+    "answer": "It’s natural to fear conflict, {name}. Prepare calmly, focus on facts, and aim to understand, not win."
+  },
+  {
+    "id": 63,
+    "question": "How do I recover from embarrassment?",
+    "answer": "Laugh gently at yourself, {name}. Everyone stumbles—it’s a sign of being human, not flawed."
+  },
+  {
+    "id": 64,
+    "question": "Why do I forget things easily under stress?",
+    "answer": "Stress redirects brain energy, {name}. Pause, breathe, and revisit once calm—your clarity will return."
+  },
+  {
+    "id": 65,
+    "question": "How can I build better habits?",
+    "answer": "Stack new habits onto existing ones, {name}. For example, stretch right after brushing your teeth."
+  },
+  {
+    "id": 66,
+    "question": "Why do I always imagine worst-case scenarios?",
+    "answer": "That’s your mind trying to protect you, {name}. Thank it, then ask, 'What’s the best-case possibility?'"
+  },
+  {
+    "id": 67,
+    "question": "How can I manage loneliness when living alone?",
+    "answer": "Create rituals, {name}: morning playlists, evening walks, and regular calls with friends for connection."
+  },
+  {
+    "id": 68,
+    "question": "What if people don’t take me seriously?",
+    "answer": "Confidence commands respect, {name}. Speak slower, maintain eye contact, and back words with action."
+  },
+  {
+    "id": 69,
+    "question": "How do I stop feeling guilty for relaxing?",
+    "answer": "Rest isn’t lazy, {name}. It’s essential maintenance—think of it as charging your internal battery."
+  },
+  {
+    "id": 70,
+    "question": "Why do I daydream so much?",
+    "answer": "Daydreaming boosts creativity, {name}. Set boundaries though—use it as inspiration, not escape."
+  },
+  {
+    "id": 71,
+    "question": "How can I be more emotionally aware?",
+    "answer": "Name your feelings out loud, {name}. Labeling emotions reduces their intensity and builds clarity."
+  },
+  {
+    "id": 72,
+    "question": "Why do I fear asking for help?",
+    "answer": "You equate help with weakness, {name}. But seeking support shows strength and self-respect."
+  },
+  {
+    "id": 73,
+    "question": "How do I stop over-apologizing?",
+    "answer": "Replace 'I’m sorry' with 'Thank you', {name}. It keeps empathy but adds confidence."
+  },
+  {
+    "id": 74,
+    "question": "How can I overcome public-speaking fear?",
+    "answer": "Practice in front of a mirror, {name}. Familiarity with your own voice reduces anxiety dramatically."
+  },
+  {
+    "id": 75,
+    "question": "What can I do if my friends drift away?",
+    "answer": "Relationships evolve, {name}. Cherish the memories and stay open to new connections."
+  },
+  {
+    "id": 76,
+    "question": "Why do I crave constant approval?",
+    "answer": "External approval feels safer, {name}. Try giving yourself praise before seeking it elsewhere."
+  },
+  {
+    "id": 77,
+    "question": "How do I bounce back after being criticized?",
+    "answer": "Take what’s useful, {name}, and leave the rest. Criticism isn’t a verdict—it’s data."
+  },
+  {
+    "id": 78,
+    "question": "How can I become more optimistic?",
+    "answer": "List three positives from each day, {name}. Your brain gradually rewires toward hope."
+  },
+  {
+    "id": 79,
+    "question": "Why do I feel pressure to be productive all the time?",
+    "answer": "Society glorifies busyness, {name}. Your worth isn’t tied to output—rest is also progress."
+  },
+  {
+    "id": 80,
+    "question": "How can I stop absorbing others’ negativity?",
+    "answer": "Visualize a clear boundary around you, {name}. Empathy doesn’t require carrying others’ pain."
+  },
+  {
+    "id": 81,
+    "question": "Why do I laugh when I’m nervous?",
+    "answer": "It’s a coping reflex, {name}. Your body diffuses tension through laughter—completely normal."
+  },
+  {
+    "id": 82,
+    "question": "How do I handle toxic friendships?",
+    "answer": "Set firm limits, {name}. You can care without sacrificing your peace—distance is self-care."
+  },
+  {
+    "id": 83,
+    "question": "Why do I feel disconnected from myself?",
+    "answer": "Try grounding activities, {name}: gentle walks, slow breathing, or mindful observation."
+  },
+  {
+    "id": 84,
+    "question": "How can I stop doubting my decisions?",
+    "answer": "Once you decide, act quickly, {name}. Confidence comes from momentum, not perfection."
+  },
+  {
+    "id": 85,
+    "question": "Why do I replay old arguments?",
+    "answer": "Your brain seeks resolution, {name}. Write what you wish you’d said—it helps close the loop."
+  },
+  {
+    "id": 86,
+    "question": "How do I reduce fear of missing out?",
+    "answer": "Remind yourself that saying no creates space for better yeses, {name}. FOMO fades with gratitude."
+  },
+  {
+    "id": 87,
+    "question": "Why do I crave validation on social media?",
+    "answer": "Each like releases dopamine, {name}. Limit checking frequency and focus on real interactions."
+  },
+  {
+    "id": 88,
+    "question": "How can I regain trust after betrayal?",
+    "answer": "Start small, {name}. Healing trust is gradual—reliability rebuilds it one act at a time."
+  },
+  {
+    "id": 89,
+    "question": "How do I manage financial stress?",
+    "answer": "Track spending, plan small budgets, and remind yourself it’s temporary, {name}. Structure reduces worry."
+  },
+  {
+    "id": 90,
+    "question": "Why do I struggle to celebrate my wins?",
+    "answer": "You move the goalpost too soon, {name}. Pause and savor achievements—they fuel future effort."
+  },
+  {
+    "id": 91,
+    "question": "How can I be more grateful?",
+    "answer": "Keep a gratitude list by your bed, {name}. Even three notes a day strengthen positive focus."
+  },
+  {
+    "id": 92,
+    "question": "Why do I lose interest in hobbies I loved?",
+    "answer": "Interest ebbs under stress, {name}. Revisit them gently without pressure to perform."
+  },
+  {
+    "id": 93,
+    "question": "How do I stop being afraid of failure?",
+    "answer": "Redefine failure as feedback, {name}. Every misstep carries useful information."
+  },
+  {
+    "id": 94,
+    "question": "How can I make peace with my past?",
+    "answer": "Reflect with compassion, {name}. You’ve grown since then—that version of you did their best."
+  },
+  {
+    "id": 95,
+    "question": "Why do I get sudden mood swings?",
+    "answer": "Mood shifts can stem from sleep, diet, or stress, {name}. Track triggers to understand patterns."
+  },
+  {
+    "id": 96,
+    "question": "How can I improve communication in relationships?",
+    "answer": "Listen twice as much as you speak, {name}. Validation softens even hard conversations."
+  },
+  {
+    "id": 97,
+    "question": "What should I do if I feel worthless?",
+    "answer": "Reach out for help, {name}. You have inherent value—sometimes pain just clouds the view."
+  },
+  {
+    "id": 98,
+    "question": "Why do I get easily distracted?",
+    "answer": "Modern life overstimulates us, {name}. Reduce notifications and work in quiet bursts."
+  },
+  {
+    "id": 99,
+    "question": "How can I be kinder to myself?",
+    "answer": "Start with language, {name}. Replace 'I should have' with 'I did my best'."
+  },
+  {
+    "id": 100,
+    "question": "Why do I fear being alone?",
+    "answer": "Solitude can feel unfamiliar, {name}. Gradually spend short peaceful moments alone—it grows comfort over time."
+  },
+  {
+    "id": 101,
+    "question": "How can I rebuild confidence after failure?",
+    "answer": "Start small, {name}. Each task you complete is proof that you can move forward again."
+  },
+  {
+    "id": 102,
+    "question": "Why do I struggle with self-love?",
+    "answer": "You’ve learned to prioritize others, {name}. Begin treating yourself with the same patience you show them."
+  },
+  {
+    "id": 103,
+    "question": "How do I stop being defensive?",
+    "answer": "Pause before reacting, {name}. Ask yourself whether you want to be right or understood."
+  },
+  {
+    "id": 104,
+    "question": "Why do compliments make me uncomfortable?",
+    "answer": "You may not fully believe them yet, {name}. Practice saying 'thank you' and let them sink in."
+  },
+  {
+    "id": 105,
+    "question": "How can I stay consistent with therapy or journaling?",
+    "answer": "Set gentle reminders, {name}. Even short, honest entries keep progress alive."
+  },
+  {
+    "id": 106,
+    "question": "What’s the difference between sadness and depression?",
+    "answer": "Sadness fades with time, {name}. Depression lingers and affects daily life—seek help if it persists."
+  },
+  {
+    "id": 107,
+    "question": "Why do I sabotage my own happiness?",
+    "answer": "Fear of change can make comfort zones feel safer, {name}. You deserve peace even when it’s unfamiliar."
+  },
+  {
+    "id": 108,
+    "question": "How can I let go of grudges?",
+    "answer": "Write a letter you’ll never send, {name}. Express everything, then release it."
+  },
+  {
+    "id": 109,
+    "question": "Why do I keep repeating old patterns?",
+    "answer": "Patterns persist until lessons are learned, {name}. Awareness is your first step to rewriting them."
+  },
+  {
+    "id": 110,
+    "question": "How can I build self-esteem?",
+    "answer": "Acknowledge small wins daily, {name}. Consistency builds quiet confidence."
+  },
+  {
+    "id": 111,
+    "question": "Why do I fear success?",
+    "answer": "Success brings responsibility, {name}. Remember—you’re allowed to grow and still feel uncertain."
+  },
+  {
+    "id": 112,
+    "question": "How do I deal with disappointment?",
+    "answer": "Disappointment shows that you cared, {name}. Let it hurt, then redirect that energy constructively."
+  },
+  {
+    "id": 113,
+    "question": "What can I do if people don’t respect boundaries?",
+    "answer": "Reiterate calmly, {name}. Boundaries require repetition before they’re honored."
+  },
+  {
+    "id": 114,
+    "question": "Why do I always feel rushed?",
+    "answer": "You might be matching others’ pace, {name}. Slow down and set your own rhythm."
+  },
+  {
+    "id": 115,
+    "question": "How can I stay hopeful during tough times?",
+    "answer": "Focus on what remains possible, {name}. Hope grows from small daily acts of courage."
+  },
+  {
+    "id": 116,
+    "question": "Why do compliments from loved ones matter more?",
+    "answer": "They validate belonging, {name}. But self-validation sustains you when others are silent."
+  },
+  {
+    "id": 117,
+    "question": "How can I stop seeking closure from someone?",
+    "answer": "Write your own closure, {name}. Sometimes peace means accepting unanswered questions."
+  },
+  {
+    "id": 118,
+    "question": "Why do I panic when plans change?",
+    "answer": "Your mind values control, {name}. Flexibility is a skill—practice by changing one small routine weekly."
+  },
+  {
+    "id": 119,
+    "question": "How do I heal from emotional burnout?",
+    "answer": "Rest without guilt, {name}. Recovery isn’t laziness—it’s necessary repair."
+  },
+  {
+    "id": 120,
+    "question": "Why can’t I say what I feel in the moment?",
+    "answer": "You process internally, {name}. Try writing notes first to clarify before speaking."
+  },
+  {
+    "id": 121,
+    "question": "How can I stop thinking about someone who hurt me?",
+    "answer": "Redirect thoughts kindly, {name}. Replace 'why did this happen' with 'what can I learn now?'"
+  },
+  {
+    "id": 122,
+    "question": "Why do I struggle with compliments from strangers?",
+    "answer": "You question motives, {name}. Accept the kindness at face value—it’s simpler that way."
+  },
+  {
+    "id": 123,
+    "question": "How do I prevent emotional exhaustion?",
+    "answer": "Balance giving and receiving, {name}. Schedule recharge time like any other task."
+  },
+  {
+    "id": 124,
+    "question": "Why do I feel like I disappoint people easily?",
+    "answer": "You hold yourself to high standards, {name}. Others often see effort, not imperfection."
+  },
+  {
+    "id": 125,
+    "question": "How can I handle criticism from family?",
+    "answer": "Acknowledge their concern, {name}, but protect your peace. Not all advice fits your path."
+  },
+  {
+    "id": 126,
+    "question": "Why do I fear commitment?",
+    "answer": "Commitment feels risky, {name}. Explore your fears slowly—security grows through trust."
+  },
+  {
+    "id": 127,
+    "question": "How do I stop internalizing failure?",
+    "answer": "Separate behavior from identity, {name}. You failed at something—you’re not a failure."
+  },
+  {
+    "id": 128,
+    "question": "Why do I get attached too quickly?",
+    "answer": "You crave connection, {name}. Let trust build gradually—it protects both hearts."
+  },
+  {
+    "id": 129,
+    "question": "How can I stay motivated during setbacks?",
+    "answer": "Remind yourself why you began, {name}. Progress is rarely a straight line."
+  },
+  {
+    "id": 130,
+    "question": "Why do I feel uncomfortable with silence?",
+    "answer": "Silence reveals our thoughts, {name}. Practice sitting with it—it soon feels peaceful."
+  },
+  {
+    "id": 131,
+    "question": "How do I manage expectations in relationships?",
+    "answer": "Communicate openly, {name}. Expectations spoken become agreements; unspoken ones breed hurt."
+  },
+  {
+    "id": 132,
+    "question": "Why do I feel invisible in groups?",
+    "answer": "Maybe you’re quieter, {name}. Your value isn’t in volume—it’s in authenticity."
+  },
+  {
+    "id": 133,
+    "question": "How can I build emotional intelligence?",
+    "answer": "Pause before reacting and observe patterns, {name}. Awareness is emotional strength."
+  },
+  {
+    "id": 134,
+    "question": "Why do I resist compliments about my achievements?",
+    "answer": "Impostor feelings, {name}. Remember, effort plus perseverance equals earned success."
+  },
+  {
+    "id": 135,
+    "question": "How do I stop replaying embarrassing moments?",
+    "answer": "Smile at them, {name}. Each awkward memory shows courage for trying."
+  },
+  {
+    "id": 136,
+    "question": "Why do I find it hard to relax even on vacation?",
+    "answer": "Your nervous system stays in work mode, {name}. Plan rest like an activity, not a reward."
+  },
+  {
+    "id": 137,
+    "question": "How can I manage perfectionism at work or school?",
+    "answer": "Set a clear 'done' point, {name}. Excellence doesn’t require endless editing."
+  },
+  {
+    "id": 138,
+    "question": "Why do I seek constant reassurance?",
+    "answer": "Insecurity wants control, {name}. Replace reassurance with self-reminders of past strengths."
+  },
+  {
+    "id": 139,
+    "question": "How do I stop doubting positive feedback?",
+    "answer": "Accept it without analysis, {name}. People mean what they say more often than you think."
+  },
+  {
+    "id": 140,
+    "question": "Why do I fear expressing anger?",
+    "answer": "You were taught it’s unsafe, {name}. Anger can be healthy when expressed respectfully."
+  },
+  {
+    "id": 141,
+    "question": "How can I stay calm during arguments?",
+    "answer": "Focus on breathing and tone, {name}. Lowering your voice lowers tension instantly."
+  },
+  {
+    "id": 142,
+    "question": "Why do I apologize for things I didn’t do?",
+    "answer": "It’s a peace-keeping habit, {name}. Replace with empathy statements like 'I see your point.'"
+  },
+  {
+    "id": 143,
+    "question": "How can I deal with rejection in friendships?",
+    "answer": "Not everyone aligns forever, {name}. Release resentment—space allows new people in."
+  },
+  {
+    "id": 144,
+    "question": "Why do I lose interest quickly in conversations?",
+    "answer": "Your mind may wander, {name}. Try summarizing what you heard—it keeps you present."
+  },
+  {
+    "id": 145,
+    "question": "How can I be less judgmental?",
+    "answer": "Replace judgment with curiosity, {name}. Ask 'I wonder what shaped them?'"
+  },
+  {
+    "id": 146,
+    "question": "Why do I get nervous sharing opinions?",
+    "answer": "You fear disapproval, {name}. Speak honestly—people value sincerity over perfection."
+  },
+  {
+    "id": 147,
+    "question": "How do I regain control after emotional outbursts?",
+    "answer": "Apologize if needed, then reflect, {name}. Triggers teach awareness, not shame."
+  },
+  {
+    "id": 148,
+    "question": "Why do I feel like I’m running out of time?",
+    "answer": "Anxiety compresses time, {name}. Slow breathing expands it again—one moment at a time."
+  },
+  {
+    "id": 149,
+    "question": "How can I stay grounded during change?",
+    "answer": "Keep one daily routine constant, {name}. Familiarity balances transition."
+  },
+  {
+    "id": 150,
+    "question": "Why do I struggle to accept compliments about kindness?",
+    "answer": "Maybe kindness feels ordinary to you, {name}. That’s what makes it so genuine."
+  },
+  {
+    "id": 151,
+    "question": "How can I deal with people who constantly complain?",
+    "answer": "Set time limits gently, {name}. You can listen without absorbing their negativity."
+  },
+  {
+    "id": 152,
+    "question": "Why do I feel like I need to fix everyone’s problems?",
+    "answer": "You care deeply, {name}. But empathy doesn’t mean responsibility—support, don’t rescue."
+  },
+  {
+    "id": 153,
+    "question": "How can I rebuild trust in myself?",
+    "answer": "Keep small promises to yourself, {name}. Integrity grows with every commitment you honor."
+  },
+  {
+    "id": 154,
+    "question": "Why do I fear losing control of my emotions?",
+    "answer": "You equate control with safety, {name}. Learning to feel without reacting builds true strength."
+  },
+  {
+    "id": 155,
+    "question": "How can I stop feeling invisible online?",
+    "answer": "Remember, validation isn’t visibility, {name}. Focus on creating, not counting likes."
+  },
+  {
+    "id": 156,
+    "question": "Why do I worry about what others think?",
+    "answer": "Humans are wired for belonging, {name}. But approval isn’t peace—authenticity is."
+  },
+  {
+    "id": 157,
+    "question": "How can I manage perfectionism in creative work?",
+    "answer": "Perfection blocks progress, {name}. Let your first draft be messy—creation comes before refinement."
+  },
+  {
+    "id": 158,
+    "question": "Why do I find it hard to trust people?",
+    "answer": "Past hurt builds walls, {name}. Trust slowly, but don’t let fear keep you lonely."
+  },
+  {
+    "id": 159,
+    "question": "How can I stop doubting my abilities?",
+    "answer": "Review your past successes, {name}. Evidence quiets the inner critic."
+  },
+  {
+    "id": 160,
+    "question": "Why do I feel guilty saying no to family?",
+    "answer": "Because love feels tied to sacrifice, {name}. Boundaries protect love—they don’t reduce it."
+  },
+  {
+    "id": 161,
+    "question": "How can I calm racing thoughts at night?",
+    "answer": "Write them down, {name}. Emptying your mind on paper signals safety to rest."
+  },
+  {
+    "id": 162,
+    "question": "Why do I lose motivation mid-project?",
+    "answer": "The novelty wears off, {name}. Reconnect with your 'why' to reignite purpose."
+  },
+  {
+    "id": 163,
+    "question": "How do I stop feeling like a burden?",
+    "answer": "Remind yourself, {name}, people choose to care for you—they’re not forced to."
+  },
+  {
+    "id": 164,
+    "question": "How can I improve my emotional vocabulary?",
+    "answer": "Read emotion lists or journals, {name}. Naming feelings precisely reduces confusion."
+  },
+  {
+    "id": 165,
+    "question": "Why do I feel empty after achieving goals?",
+    "answer": "Because goals end, {name}. Fulfillment comes from purpose, not milestones."
+  },
+  {
+    "id": 166,
+    "question": "How can I manage long-distance friendships?",
+    "answer": "Schedule video calls and send voice notes, {name}. Consistency keeps emotional closeness."
+  },
+  {
+    "id": 167,
+    "question": "Why do I find it hard to trust my intuition?",
+    "answer": "Logic often overpowers instinct, {name}. Practice listening to gut feelings in small choices first."
+  },
+  {
+    "id": 168,
+    "question": "How do I stop absorbing others’ emotions?",
+    "answer": "Visualize a mental boundary, {name}. Empathy means understanding, not carrying."
+  },
+  {
+    "id": 169,
+    "question": "Why do I keep checking my phone?",
+    "answer": "Dopamine habits form loops, {name}. Replace quick checks with mindful pauses."
+  },
+  {
+    "id": 170,
+    "question": "How can I handle peer pressure?",
+    "answer": "Pause before reacting, {name}. Ask if the choice aligns with your values, not others’ expectations."
+  },
+  {
+    "id": 171,
+    "question": "Why do I always try to please everyone?",
+    "answer": "People-pleasing stems from fear of rejection, {name}. True peace comes from self-respect."
+  },
+  {
+    "id": 172,
+    "question": "How can I recover from creative burnout?",
+    "answer": "Step away, {name}. Inspiration returns when you rest your mind and play."
+  },
+  {
+    "id": 173,
+    "question": "Why do I feel anxious when things go well?",
+    "answer": "Happiness can feel unsafe after struggle, {name}. It’s okay—joy takes practice too."
+  },
+  {
+    "id": 174,
+    "question": "How can I stop reliving traumatic events?",
+    "answer": "Ground yourself in the present, {name}. Professional help can safely guide healing."
+  },
+  {
+    "id": 175,
+    "question": "Why do I struggle with compliments on intelligence?",
+    "answer": "You fear expectation, {name}. Remember, intelligence isn’t pressure—it’s potential."
+  },
+  {
+    "id": 176,
+    "question": "How can I practice gratitude on bad days?",
+    "answer": "Find one small neutral thing, {name}—a warm drink, a kind word. That’s enough to shift perspective."
+  },
+  {
+    "id": 177,
+    "question": "Why do I feel like crying for no reason?",
+    "answer": "Crying releases emotional pressure, {name}. Sometimes your body processes what words can’t."
+  },
+  {
+    "id": 178,
+    "question": "How can I handle social anxiety?",
+    "answer": "Start small, {name}. Prepare topics and remind yourself that others feel nervous too."
+  },
+  {
+    "id": 179,
+    "question": "Why do I fear disappointing my teachers or boss?",
+    "answer": "External validation shaped your worth, {name}. Shift focus to effort, not approval."
+  },
+  {
+    "id": 180,
+    "question": "How do I stop feeling behind in life?",
+    "answer": "There’s no universal timeline, {name}. You’re exactly where your growth needs you to be."
+  },
+  {
+    "id": 181,
+    "question": "Why do I forget self-care when busy?",
+    "answer": "Because survival mode replaces balance, {name}. Schedule care like an appointment."
+  },
+  {
+    "id": 182,
+    "question": "How can I stop seeking perfection in relationships?",
+    "answer": "Connection needs acceptance, {name}. Flaws make bonds real, not weak."
+  },
+  {
+    "id": 183,
+    "question": "Why do I struggle to accept praise?",
+    "answer": "Old criticism echoes louder, {name}. Practice acknowledging compliments without deflecting."
+  },
+  {
+    "id": 184,
+    "question": "How can I improve self-awareness?",
+    "answer": "Reflect daily, {name}. Ask, 'What triggered me today?' Growth begins with noticing."
+  },
+  {
+    "id": 185,
+    "question": "Why do I get nervous around confident people?",
+    "answer": "You compare instead of connect, {name}. Admire confidence—it’s a mirror for your own potential."
+  },
+  {
+    "id": 186,
+    "question": "How do I maintain optimism after setbacks?",
+    "answer": "Revisit past recoveries, {name}. Proof of resilience strengthens hope."
+  },
+  {
+    "id": 187,
+    "question": "Why do I feel pressure to be perfect online?",
+    "answer": "Social media rewards highlight reels, {name}. Authenticity is far more freeing."
+  },
+  {
+    "id": 188,
+    "question": "How can I stop blaming myself for everything?",
+    "answer": "Responsibility isn’t guilt, {name}. Learn the difference and forgive your humanity."
+  },
+  {
+    "id": 189,
+    "question": "Why do I struggle to express needs?",
+    "answer": "You fear being a burden, {name}. But needs are normal—they build healthier connections."
+  },
+  {
+    "id": 190,
+    "question": "How can I develop emotional maturity?",
+    "answer": "Pause, observe, and choose response over reaction, {name}. That’s maturity in action."
+  },
+  {
+    "id": 191,
+    "question": "Why do I struggle to make decisions?",
+    "answer": "Decision fatigue, {name}. Simplify options and trust your first instinct more often."
+  },
+  {
+    "id": 192,
+    "question": "How can I stay positive when surrounded by negativity?",
+    "answer": "Protect your energy, {name}. Limit exposure and focus on gratitude daily."
+  },
+  {
+    "id": 193,
+    "question": "Why do I overanalyze everything I say?",
+    "answer": "Because you care about impressions, {name}. But perfection isn’t connection—authenticity is."
+  },
+  {
+    "id": 194,
+    "question": "How can I manage guilt over taking breaks?",
+    "answer": "Remind yourself rest increases productivity, {name}. It’s balance, not laziness."
+  },
+  {
+    "id": 195,
+    "question": "Why do I always want to be in control?",
+    "answer": "Control feels like safety, {name}. But growth requires a little trust in uncertainty."
+  },
+  {
+    "id": 196,
+    "question": "How can I stop comparing my healing to others?",
+    "answer": "Healing isn’t a race, {name}. Your pace is exactly right for you."
+  },
+  {
+    "id": 197,
+    "question": "Why do I find it hard to celebrate small wins?",
+    "answer": "You’re aiming for big milestones, {name}. But progress is built from small victories."
+  },
+  {
+    "id": 198,
+    "question": "How do I stay patient with personal growth?",
+    "answer": "Think of growth like seasons, {name}. Change takes quiet time beneath the surface."
+  },
+  {
+    "id": 199,
+    "question": "Why do I fear losing people even when they’re still here?",
+    "answer": "Past loss creates anxiety, {name}. Enjoy presence now instead of predicting endings."
+  },
+  {
+    "id": 200,
+    "question": "How can I remind myself that I’m enough?",
+    "answer": "Look at your reflection and say it daily, {name}. Repetition rewires belief—it truly works."
+  }
+]
+
+
+
