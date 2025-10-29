@@ -65,7 +65,8 @@ Assistant:
   `.trim();
 }
 
-async function callMistral(prompt) {
+// -------------------- IMPROVED MODEL CALL --------------------
+async function callMistral(prompt, attempt = 1) {
   const headers = {
     Authorization: `Bearer ${HF_TOKEN}`,
     "Content-Type": "application/json",
@@ -81,26 +82,38 @@ async function callMistral(prompt) {
     },
   });
 
-  const res = await fetch(HF_API_URL, { method: "POST", headers, body });
-  const txt = await res.text();
-
-  if (txt.includes("loading")) {
-    console.log("⚠️ Model warming up... retrying in 3s");
-    await new Promise((r) => setTimeout(r, 3000));
-    return callMistral(prompt);
-  }
-
   try {
+    const res = await fetch(HF_API_URL, { method: "POST", headers, body });
+    const txt = await res.text();
+
+    // 💤 Handle warm-up or empty response gracefully
+    if (txt.includes("loading") || txt.includes("currently loading")) {
+      const delay = 5000 * attempt;
+      console.log(`⚠️ Mistral model still warming up... retrying in ${delay / 1000}s`);
+      await new Promise((r) => setTimeout(r, delay));
+
+      if (attempt < 5) {
+        return await callMistral(prompt, attempt + 1);
+      } else {
+        console.warn("❌ Model did not finish loading after multiple retries.");
+        return "I’m still waking up, could we try again in a few moments?";
+      }
+    }
+
     const data = JSON.parse(txt);
+
+    // ✅ Return parsed response if available
     if (Array.isArray(data) && data[0]?.generated_text)
       return data[0].generated_text.trim();
     if (data.generated_text) return data.generated_text.trim();
     if (data.text) return data.text.trim();
-  } catch (err) {
-    console.warn("⚠️ Could not parse HF response:", txt.slice(0, 200));
-  }
 
-  return "I'm here for you. Let's take a deep breath together.";
+    console.warn("⚠️ No valid text returned from model:", txt.slice(0, 200));
+    return "I’m here for you, but I’m having a hard time forming words right now.";
+  } catch (err) {
+    console.error("⚠️ Error contacting Mistral:", err);
+    return "I'm here for you. Let's take a deep breath together.";
+  }
 }
 
 // -------------------- ROUTES --------------------
@@ -122,7 +135,7 @@ app.post("/chat", async (req, res) => {
     const prompt = buildPrompt(sessionId, userMessage);
     const replyRaw = await callMistral(prompt);
 
-    // small fix for first-person voice
+    // 🪶 Polishing the response tone
     const reply = replyRaw
       .replace(/\b[Ss]ahaj is\b/g, "I am")
       .replace(/\b[Ss]ahaj\b/g, "I");
@@ -132,7 +145,7 @@ app.post("/chat", async (req, res) => {
     console.log("🤖 Reply:", reply);
     return res.json({ fulfillmentText: reply });
   } catch (err) {
-    console.error("⚠️ Error:", err);
+    console.error("⚠️ Chat endpoint error:", err);
     return res.json({
       fulfillmentText:
         "I'm here for you, but I’m having trouble responding right now. Could you try again in a moment?",
@@ -140,14 +153,14 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-// ✅ Add GET route for browser tests — non-destructive
+// ✅ Browser-accessible route
 app.get("/chat", (req, res) => {
   res.send(
     "✅ Sahaj chat endpoint is working! Please send a POST request here with a JSON body like { \"text\": \"Hey Sahaj\" }."
   );
 });
 
-// ✅ Root route (status check)
+// ✅ Root route
 app.get("/", (req, res) => {
   res.send("🌿 Sahaj API is alive — powered by Mistral 💫");
 });
