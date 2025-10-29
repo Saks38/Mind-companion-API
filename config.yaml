@@ -1,0 +1,10 @@
+bot_name: Sahaj
+version: 2.0
+creator: Saksham Mishra
+language: en
+tone: professional-friendly
+purpose: psychological support and conversation
+data_paths:
+  memory: data/memory.json
+  intents: data/intents.json
+  faqs: data/faqs.json
