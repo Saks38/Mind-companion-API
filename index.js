@@ -48,9 +48,9 @@ function buildPrompt(id, userMessage) {
   const namePart = s.name
     ? `The user's name is ${s.name}. Address them respectfully as ${s.name}. `
     : "";
-  const history = s.memory.map(
-    (m) => `${m.role === "user" ? "User" : "Assistant"}: ${m.text}`
-  ).join("\n");
+  const history = s.memory
+    .map((m) => `${m.role === "user" ? "User" : "Assistant"}: ${m.text}`)
+    .join("\n");
 
   return `
 You are Sahaj, a warm and empathetic mental health companion.
@@ -62,7 +62,7 @@ ${history}
 
 User: ${userMessage}
 Assistant:
-`.trim();
+  `.trim();
 }
 
 async function callMistral(prompt) {
@@ -104,6 +104,8 @@ async function callMistral(prompt) {
 }
 
 // -------------------- ROUTES --------------------
+
+// ✅ Main chat route (POST)
 app.post("/chat", async (req, res) => {
   try {
     const body = req.body || {};
@@ -138,10 +140,19 @@ app.post("/chat", async (req, res) => {
   }
 });
 
+// ✅ Add GET route for browser tests — non-destructive
+app.get("/chat", (req, res) => {
+  res.send(
+    "✅ Sahaj chat endpoint is working! Please send a POST request here with a JSON body like { \"text\": \"Hey Sahaj\" }."
+  );
+});
+
+// ✅ Root route (status check)
 app.get("/", (req, res) => {
   res.send("🌿 Sahaj API is alive — powered by Mistral 💫");
 });
 
+// -------------------- SERVER --------------------
 app.listen(PORT, () => {
   console.log(`✅ Sahaj server live on port ${PORT}`);
 });
